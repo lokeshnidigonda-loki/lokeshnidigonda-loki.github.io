@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nidigonda Lokesh | Data Analyst & Data Scientist</title>
+<title>Nidigonda Lokesh | Data Analyst & ML Developer</title>
 
 <!-- FontAwesome Icons & Typography -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,12 +13,12 @@
 
 <style>
   :root {
-    --gold: #E5A93C;
-    --gold-glow: rgba(229, 169, 60, 0.25);
+    --gold: #F59E0B;
+    --gold-glow: rgba(245, 158, 11, 0.28);
     --cyan: #38BDF8;
     --cyan-glow: rgba(56, 189, 248, 0.25);
     --rose: #FB7185;
-    --emerald: #34D399;
+    --emerald: #10B981;
     --white: #F8FAFC;
     --muted: #94A3B8;
   }
@@ -26,7 +26,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    background: #070B12;
+    background: #060911;
     color: var(--white);
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
@@ -36,102 +36,75 @@
   ul { list-style: none; }
   img { max-width: 100%; height: auto; display: block; }
 
-  /* SECTION BACKGROUNDS (Strictly Unique & Non-Generic) */
-  .section-hero {
-    background: radial-gradient(circle at 80% 20%, rgba(229,169,60,0.12) 0%, transparent 50%),
-                linear-gradient(180deg, rgba(7,11,18,0.72) 0%, rgba(7,11,18,0.96) 100%),
+  /* 3D PERSPECTIVE SETUP */
+  .tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  }
+  .tilt-inner {
+    transform: translateZ(35px);
+  }
+
+  /* SECTION COLOR HARMONIES (Strictly Tailored & Non-AI) */
+  .sec-hero {
+    background: radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.14) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(6, 9, 17, 0.75) 0%, rgba(6, 9, 17, 0.98) 100%),
                 url('BackGroundImage.png') center/cover no-repeat fixed;
   }
-  .section-about {
-    background: radial-gradient(circle at 10% 50%, rgba(217,119,6,0.08) 0%, transparent 40%),
-                linear-gradient(180deg, #070B12 0%, #0D0A08 50%, #090E17 100%);
+  .sec-about {
+    background: radial-gradient(circle at 10% 50%, rgba(217, 119, 6, 0.1) 0%, transparent 45%),
+                linear-gradient(180deg, #060911 0%, #0E0A08 50%, #080D17 100%);
   }
-  .section-skills {
-    background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.06) 0%, transparent 60%),
-                linear-gradient(180deg, #090E17 0%, #060B12 100%);
+  .sec-skills {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
+                linear-gradient(180deg, #080D17 0%, #060A13 100%);
   }
-  .section-projects {
-    background: radial-gradient(circle at 90% 10%, rgba(136,19,55,0.12) 0%, transparent 50%),
-                radial-gradient(circle at 10% 80%, rgba(14,116,144,0.12) 0%, transparent 50%),
-                linear-gradient(180deg, #060B12 0%, #0A070F 50%, #070D14 100%);
+  .sec-projects {
+    background: radial-gradient(circle at 90% 20%, rgba(225, 29, 72, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 10% 75%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+                linear-gradient(180deg, #060A13 0%, #0F0814 50%, #080E17 100%);
   }
-  .section-cinema {
-    background: radial-gradient(circle at 50% 50%, rgba(229,169,60,0.05) 0%, transparent 70%),
-                linear-gradient(180deg, #070D14 0%, #0B0813 100%);
+  .sec-cinema {
+    background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.06) 0%, transparent 70%),
+                linear-gradient(180deg, #080E17 0%, #0B0713 100%);
   }
-  .section-contact {
-    background: radial-gradient(circle at 50% 100%, rgba(56,189,248,0.1) 0%, transparent 60%),
-                linear-gradient(180deg, #0B0813 0%, #04060A 100%);
+  .sec-contact {
+    background: radial-gradient(circle at 50% 100%, rgba(56, 189, 248, 0.14) 0%, transparent 55%),
+                linear-gradient(180deg, #0B0713 0%, #03060A 100%);
   }
 
   section {
-    padding: 120px 8%;
+    padding: 110px 8%;
     position: relative;
   }
 
-  /* TYPOGRAPHY */
-  .serif {
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400;
-  }
-  .mono {
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .badge-tag {
+  .serif { font-family: 'Instrument Serif', serif; font-weight: 400; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* BADGES */
+  .badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 18px;
+    padding: 6px 16px;
     border-radius: 999px;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 24px;
-    backdrop-filter: blur(12px);
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
   }
-  .badge-gold {
-    background: rgba(229,169,60,0.1);
-    border: 1px solid rgba(229,169,60,0.4);
-    color: var(--gold);
-  }
-  .badge-cyan {
-    background: rgba(56,189,248,0.1);
-    border: 1px solid rgba(56,189,248,0.4);
-    color: var(--cyan);
-  }
-  .badge-rose {
-    background: rgba(251,113,133,0.1);
-    border: 1px solid rgba(251,113,133,0.4);
-    color: var(--rose);
-  }
+  .badge-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.4); color: var(--gold); }
+  .badge-cyan { background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.4); color: var(--cyan); }
+  .badge-rose { background: rgba(251,113,133,0.1); border: 1px solid rgba(251,113,133,0.4); color: var(--rose); }
 
-  .section-head {
-    margin-bottom: 60px;
-  }
-  .section-head h2 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-  }
-  .section-head p {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 620px;
-    margin-top: 8px;
-  }
+  .section-head { margin-bottom: 50px; }
+  .section-head h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.5px; }
+  .section-head p { color: var(--muted); font-size: 1.05rem; max-width: 620px; margin-top: 8px; }
 
-  /* 3D TILT CARDS SETUP */
-  .tilt-card {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
-  }
-  .tilt-content {
-    transform: translateZ(30px);
-  }
-
-  /* NAVIGATION */
+  /* NAVBAR */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -139,41 +112,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 6%;
-    background: rgba(7, 11, 18, 0.75);
-    backdrop-filter: blur(16px);
+    padding: 16px 6%;
+    background: rgba(6, 9, 17, 0.8);
+    backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
-  .brand {
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 1px;
-  }
+  .brand { font-weight: 800; font-size: 0.95rem; letter-spacing: 1px; }
   .brand span { color: var(--gold); }
-  .nav-links { display: flex; gap: 32px; }
-  .nav-links a {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--muted);
-    transition: color 0.2s;
-  }
+  .nav-links { display: flex; gap: 30px; }
+  .nav-links a { font-size: 0.85rem; font-weight: 600; color: var(--muted); transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
 
-  /* FLOATING 3D GLASS DOCK */
+  /* FLOATING DOCK */
   .dock {
     position: fixed;
-    bottom: 24px;
+    bottom: 22px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(18, 24, 38, 0.75);
+    background: rgba(18, 26, 43, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 999px;
-    padding: 8px 24px;
+    padding: 8px 22px;
     display: flex;
-    gap: 16px;
+    gap: 14px;
     z-index: 2000;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.65);
   }
   .dock a {
     color: var(--muted);
@@ -184,39 +148,38 @@
   }
   .dock a:hover {
     color: var(--gold);
-    transform: translateY(-6px) scale(1.15);
-    background: rgba(229,169,60,0.15);
+    transform: translateY(-6px) scale(1.18);
+    background: rgba(245, 158, 11, 0.16);
   }
 
-  /* HERO SECTION */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 60px;
-    padding-top: 120px;
+    padding-top: 110px;
   }
-  .hero-content { flex: 1.2; }
-  .hero-content h1 {
-    font-size: 4.4rem;
+  .hero-text { flex: 1.25; }
+  .hero-text h1 {
+    font-size: 4.2rem;
     line-height: 1.05;
     letter-spacing: -1.5px;
     margin-bottom: 20px;
   }
-  .hero-content h1 span {
-    background: linear-gradient(120deg, #FFFFFF 30%, var(--gold) 100%);
+  .hero-text h1 span {
+    background: linear-gradient(120deg, #FFFFFF 35%, var(--gold) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .hero-content p.lead {
-    font-size: 1.2rem;
+  .hero-text p.lead {
+    font-size: 1.15rem;
     color: #CBD5E1;
-    max-width: 580px;
-    margin-bottom: 36px;
-    font-weight: 400;
+    max-width: 560px;
+    margin-bottom: 34px;
   }
-  .btn-group { display: flex; gap: 18px; flex-wrap: wrap; }
+  .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn {
     padding: 14px 28px;
     border-radius: 999px;
@@ -230,101 +193,90 @@
   }
   .btn-primary {
     background: var(--gold);
-    color: #070B12;
-    box-shadow: 0 10px 25px rgba(229,169,60,0.3);
+    color: #060911;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
   }
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(229,169,60,0.45);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.45);
   }
   .btn-ghost {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.05);
     color: var(--white);
     border: 1px solid rgba(255,255,255,0.15);
     backdrop-filter: blur(8px);
   }
   .btn-ghost:hover {
-    background: rgba(255,255,255,0.09);
+    background: rgba(255,255,255,0.1);
     border-color: var(--white);
     transform: translateY(-3px);
   }
 
-  .hero-portal-card {
-    flex: 0.9;
-    border-radius: 28px;
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  /* HERO 3D PROFILE FRAME */
+  .hero-profile-wrap {
+    flex: 0.85;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 24px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
   }
-  .avatar-card {
+  .profile-box {
     width: 100%;
-    height: 380px;
+    height: 420px;
     border-radius: 20px;
     overflow: hidden;
     position: relative;
+    border: 2px solid rgba(245, 158, 11, 0.3);
   }
-  .avatar-card img {
+  .profile-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
   }
-  .avatar-overlay {
+  .profile-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     padding: 20px;
-    background: linear-gradient(0deg, rgba(7,11,18,0.95) 0%, transparent 100%);
+    background: linear-gradient(0deg, rgba(6, 9, 17, 0.95) 0%, transparent 100%);
   }
 
-  /* 3D SKILL MATRIX */
+  /* SKILLS */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 22px;
   }
   .skill-block {
-    background: rgba(18, 26, 43, 0.65);
+    background: rgba(18, 26, 43, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 22px;
-    padding: 32px 26px;
+    border-radius: 20px;
+    padding: 30px 24px;
     backdrop-filter: blur(14px);
   }
   .skill-block:hover {
     border-color: var(--cyan);
     box-shadow: 0 15px 35px var(--cyan-glow);
   }
-  .skill-icon {
-    font-size: 2rem;
-    color: var(--cyan);
-    margin-bottom: 20px;
-  }
-  .skill-block h3 {
-    font-size: 1.15rem;
-    margin-bottom: 12px;
-    font-weight: 700;
-  }
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
+  .skill-icon { font-size: 2rem; color: var(--cyan); margin-bottom: 18px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .tag {
     font-size: 0.72rem;
     font-weight: 600;
     padding: 4px 10px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.06);
     border-radius: 6px;
     color: #CBD5E1;
   }
 
-  /* 3D SHOWCASE PROJECTS */
+  /* PROJECT CARDS */
   .project-item {
     background: rgba(15, 23, 42, 0.7);
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 28px;
+    border-radius: 26px;
     overflow: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     backdrop-filter: blur(16px);
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
   }
@@ -335,16 +287,9 @@
     overflow: hidden;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .project-screen img {
-    width: 100%;
-    transition: transform 0.5s ease;
-  }
-  .project-item:hover .project-screen img {
-    transform: scale(1.02);
-  }
-  .project-info {
-    padding: 36px;
-  }
+  .project-screen img { width: 100%; transition: transform 0.4s ease; }
+  .project-item:hover .project-screen img { transform: scale(1.02); }
+  .project-body { padding: 34px; }
   .project-meta {
     display: flex;
     justify-content: space-between;
@@ -354,13 +299,8 @@
     gap: 12px;
   }
 
-  /* INTERACTIVE DASHBOARD VIEWER TABS */
-  .dash-tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-  }
+  /* DASHBOARD TAB BUTTONS */
+  .dash-tabs { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
   .dash-tab-btn {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
@@ -374,16 +314,16 @@
   }
   .dash-tab-btn.active {
     background: var(--gold);
-    color: #070B12;
+    color: #060911;
     border-color: var(--gold);
     font-weight: 700;
   }
 
-  /* CINEMA SECTION */
+  /* CINEMA */
   .cinema-card {
     background: rgba(20, 16, 32, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    border-radius: 18px;
     overflow: hidden;
     backdrop-filter: blur(12px);
     transition: all 0.3s ease;
@@ -391,31 +331,13 @@
   .cinema-card:hover {
     transform: translateY(-8px);
     border-color: var(--gold);
-    box-shadow: 0 15px 30px rgba(229,169,60,0.2);
+    box-shadow: 0 15px 30px rgba(245,158,11,0.2);
   }
-  .cinema-poster {
-    height: 240px;
-    overflow: hidden;
-    position: relative;
-    background: #000;
-  }
-  .cinema-poster img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .cinema-details {
-    padding: 20px;
-  }
-  .cinema-details h4 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-  .cinema-review {
-    color: var(--muted);
-    font-size: 0.82rem;
-    font-style: italic;
-  }
+  .cinema-poster { height: 230px; overflow: hidden; background: #000; }
+  .cinema-poster img { width: 100%; height: 100%; object-fit: cover; }
+  .cinema-info { padding: 20px; }
+  .cinema-info h4 { font-size: 1.1rem; margin-bottom: 8px; }
+  .cinema-review { color: var(--muted); font-size: 0.82rem; font-style: italic; }
 
   /* CONTACT GRID */
   .contact-cards {
@@ -445,22 +367,18 @@
     display: block;
     margin-bottom: 6px;
   }
-  .contact-tile p {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--white);
-  }
+  .contact-tile p { font-size: 0.95rem; font-weight: 600; color: var(--white); }
 
   @media (max-width: 1024px) {
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-cards { grid-template-columns: repeat(2, 1fr); }
     .hero { flex-direction: column-reverse; text-align: center; }
-    .hero-content h1 { font-size: 3.4rem; }
+    .hero-text h1 { font-size: 3.2rem; }
     .btn-group { justify-content: center; }
   }
   @media (max-width: 640px) {
     .skills-grid, .contact-cards { grid-template-columns: 1fr; }
-    .hero-content h1 { font-size: 2.6rem; }
+    .hero-text h1 { font-size: 2.5rem; }
     nav .nav-links { display: none; }
   }
 </style>
@@ -482,81 +400,81 @@
 <!-- FLOATING 3D GLASS DOCK -->
 <div class="dock">
   <a href="#home" title="Home"><i class="fas fa-home"></i></a>
-  <a href="#about" title="Education & Background"><i class="fas fa-user-graduate"></i></a>
+  <a href="#about" title="Education"><i class="fas fa-user-graduate"></i></a>
   <a href="#skills" title="Skills"><i class="fas fa-terminal"></i></a>
-  <a href="#projects" title="Featured Projects"><i class="fas fa-chart-line"></i></a>
-  <a href="#cinema" title="Cinema Reviews"><i class="fas fa-film"></i></a>
-  <a href="#contact" title="Get in Touch"><i class="fas fa-paper-plane"></i></a>
+  <a href="#projects" title="Projects"><i class="fas fa-chart-line"></i></a>
+  <a href="#cinema" title="Cinema"><i class="fas fa-film"></i></a>
+  <a href="#contact" title="Contact"><i class="fas fa-paper-plane"></i></a>
 </div>
 
-<!-- 1. HERO SECTION (Midnight Command & Charminar Backdrop) -->
-<section class="section-hero hero" id="home">
-  <div class="hero-content">
-    <div class="badge-tag badge-gold">
-      <i class="fas fa-circle" style="font-size:0.5rem;"></i> Available for 2026 Roles
+<!-- 1. HERO SECTION (Command Theme with Charminar Backdrop & Profile) -->
+<section class="sec-hero hero" id="home">
+  <div class="hero-text">
+    <div class="badge badge-gold">
+      <i class="fas fa-circle" style="font-size:0.5rem;"></i> Fresher • 2026 Batch
     </div>
-    <h1>Solving complex operations with <span>clean code & BI.</span></h1>
+    <h1>Driving business metrics with <span>clean code & BI.</span></h1>
     <p class="lead">
-      I'm <b>Nidigonda Lokesh</b> — Data Analyst & Python Developer specializing in Power BI Star Schema modeling, automated REST pipelines, and production SQL querying.
+      I'm <b>Nidigonda Lokesh</b> — Data Analyst & Python Developer specializing in Power BI Star Schema data models, SQL database warehousing, and automated backend data pipelines.
     </p>
     <div class="btn-group">
-      <a href="#projects" class="btn btn-primary"><i class="fas fa-eye"></i> Explore Case Studies</a>
+      <a href="#projects" class="btn btn-primary"><i class="fas fa-layer-group"></i> View Case Studies</a>
       <a href="https://github.com/lokeshnidigonda-loki" target="_blank" class="btn btn-ghost"><i class="fab fa-github"></i> GitHub Profile</a>
     </div>
   </div>
 
-  <!-- 3D Hero Profile Tile -->
-  <div class="hero-portal-card tilt-card" data-tilt>
-    <div class="avatar-card tilt-content">
-      <img src="BOOKANDGLASS.jpg" alt="Data Workspace">
-      <div class="avatar-overlay">
+  <!-- 3D Profile Frame (Using your exact profile.jpg) -->
+  <div class="hero-profile-wrap tilt-card" data-tilt>
+    <div class="profile-box tilt-inner">
+      <img src="profile.jpg" alt="Nidigonda Lokesh">
+      <div class="profile-overlay">
         <p class="mono" style="font-size:0.8rem; color:var(--gold);">LOC: HYDERABAD, INDIA</p>
-        <h3 style="font-size:1.2rem; font-weight:700;">Nidigonda Lokesh</h3>
-        <p style="font-size:0.82rem; color:var(--muted);">B.Tech Data Science (2022–2026)</p>
+        <h3 style="font-size:1.25rem; font-weight:700;">Nidigonda Lokesh</h3>
+        <p style="font-size:0.82rem; color:var(--muted);">B.Tech CSE (Data Science) 2022–2026</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 2. ABOUT & ACADEMICS (Warm Amber & Editorial Obsidian) -->
-<section class="section-about" id="about">
+<section class="sec-about" id="about">
   <div class="section-head">
-    <div class="badge-tag badge-gold"><i class="fas fa-graduation-cap"></i> Academic Heritage</div>
-    <h2 class="serif" style="font-size:3.5rem;">Foundations in <i>Computer Science.</i></h2>
-    <p>Educated with strong computational focus, specialized in Data Science and relational architecture.</p>
+    <div class="badge badge-gold"><i class="fas fa-graduation-cap"></i> Academic Background</div>
+    <h2 class="serif" style="font-size:3.5rem;">Rooted in <i>Computer Science.</i></h2>
+    <p>Strong foundations in data structures, relational schemas, and machine learning pipelines.</p>
   </div>
 
   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:24px;">
-    <div class="tilt-card" style="background:rgba(25,18,12,0.6); border:1px solid rgba(229,169,60,0.2); border-radius:22px; padding:32px; backdrop-filter:blur(12px);" data-tilt>
-      <h3 style="color:var(--gold); margin-bottom:20px; font-size:1.2rem;"><i class="fas fa-university"></i> Degree Program</h3>
-      <h4 style="font-size:1.15rem;">Marri Laxman Reddy Institute of Technology (MLRITM)</h4>
-      <p style="color:var(--gold); font-weight:600; margin-top:4px;">B.Tech in CSE (Data Science) | 2022 – 2026</p>
-      <p style="color:var(--muted); font-size:0.88rem; margin-top:8px;">Core Coursework: Relational Database Systems, Machine Learning, Data Structures, Predictive Modeling, Big Data Foundations.</p>
+    <div class="tilt-card" style="background:rgba(25,18,12,0.65); border:1px solid rgba(245,158,11,0.2); border-radius:22px; padding:32px; backdrop-filter:blur(12px);" data-tilt>
+      <h3 style="color:var(--gold); margin-bottom:16px; font-size:1.2rem;"><i class="fas fa-university"></i> Formal Degree</h3>
+      <h4 style="font-size:1.15rem;">Marri Laxman Reddy Institute of Technology and Management</h4>
+      <p style="color:var(--gold); font-weight:600; margin-top:4px;">B.Tech CSE (Data Science) | 2022 – 2026</p>
+      <p style="color:var(--muted); font-size:0.88rem; margin-top:10px;">Deep coursework across Relational Database Management Systems, Data Structures & Algorithms, Predictive Analytics, and Statistical Methods.</p>
     </div>
 
-    <div class="tilt-card" style="background:rgba(25,18,12,0.6); border:1px solid rgba(229,169,60,0.2); border-radius:22px; padding:32px; backdrop-filter:blur(12px);" data-tilt>
-      <h3 style="color:var(--gold); margin-bottom:20px; font-size:1.2rem;"><i class="fas fa-certificate"></i> Verified Badges</h3>
-      <p style="margin-bottom:12px;">• <b>HackerRank:</b> SQL (Intermediate) & Python Verified Badges</p>
-      <p style="margin-bottom:12px;">• <b>IBM Developer Skills:</b> Python 101 for Data Science</p>
-      <p style="margin-bottom:12px;">• <b>IIAS:</b> Diploma in Programming Languages (Python) — Grade A+</p>
-      <p>• <b>Kaggle:</b> Pandas, Data Cleaning, and SQL Certifications</p>
+    <div class="tilt-card" style="background:rgba(25,18,12,0.65); border:1px solid rgba(245,158,11,0.2); border-radius:22px; padding:32px; backdrop-filter:blur(12px);" data-tilt>
+      <h3 style="color:var(--gold); margin-bottom:16px; font-size:1.2rem;"><i class="fas fa-certificate"></i> Verified Badges & Certs</h3>
+      <p style="margin-bottom:10px;">• <b>HackerRank:</b> SQL (Intermediate) & Python Verified Badges</p>
+      <p style="margin-bottom:10px;">• <b>IBM / Cognitive Class:</b> Python 101 for Data Science</p>
+      <p style="margin-bottom:10px;">• <b>IIAS:</b> Diploma in Programming Languages (Python) — Grade A+</p>
+      <p>• <b>Kaggle:</b> Intro to SQL & Python Certifications</p>
     </div>
   </div>
 </section>
 
 <!-- 3. SKILLS MATRIX (Deep Obsidian Steel) -->
-<section class="section-skills" id="skills">
+<section class="sec-skills" id="skills">
   <div class="section-head">
-    <div class="badge-tag badge-cyan"><i class="fas fa-layer-group"></i> Competencies</div>
-    <h2>Production-Ready Tech Stack</h2>
-    <p>Tools and frameworks applied across real data modeling, API deployment, and reporting suites.</p>
+    <div class="badge badge-cyan"><i class="fas fa-terminal"></i> Core Capabilities</div>
+    <h2>Production-Grade Tooling</h2>
+    <p>Technologies used across data modeling, statistical workflows, and automated deployment.</p>
   </div>
 
   <div class="skills-grid">
     <div class="skill-block tilt-card" data-tilt>
       <div class="skill-icon"><i class="fas fa-database"></i></div>
-      <h3>SQL & Storage</h3>
-      <p style="color:var(--muted); font-size:0.88rem;">Complex multi-table queries, subqueries, indexing, and Star Schema normalization.</p>
+      <h3 style="font-size:1.15rem; margin-bottom:8px;">SQL & Relational</h3>
+      <p style="color:var(--muted); font-size:0.88rem;">Multi-table joins, subqueries, aggregation logic, and Star Schema normalization.</p>
       <div class="skill-tags">
         <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Neon DB</span>
       </div>
@@ -564,26 +482,26 @@
 
     <div class="skill-block tilt-card" data-tilt>
       <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
-      <h3>BI & Analytics</h3>
+      <h3 style="font-size:1.15rem; margin-bottom:8px;">BI & Visualization</h3>
       <p style="color:var(--muted); font-size:0.88rem;">Executive UI layout design, DAX measure engineering, KPI cards, and cross-filtering.</p>
       <div class="skill-tags">
-        <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Excel VBA</span>
+        <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Excel Pivot</span>
       </div>
     </div>
 
     <div class="skill-block tilt-card" data-tilt>
       <div class="skill-icon"><i class="fab fa-python"></i></div>
-      <h3>Python Ecosystem</h3>
-      <p style="color:var(--muted); font-size:0.88rem;">Data wrangling, automated ETL extraction, statistical evaluations, and REST development.</p>
+      <h3 style="font-size:1.15rem; margin-bottom:8px;">Python & ML</h3>
+      <p style="color:var(--muted); font-size:0.88rem;">Feature engineering, data cleaning, Decision Trees, and Random Forest tuning.</p>
       <div class="skill-tags">
         <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span>
       </div>
     </div>
 
     <div class="skill-block tilt-card" data-tilt>
-      <div class="skill-icon"><i class="fas fa-server"></i></div>
-      <h3>Data Engineering</h3>
-      <p style="color:var(--muted); font-size:0.88rem;">Scheduled automated GitHub Actions workflows, REST endpoint design, and cloud hostings.</p>
+      <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+      <h3 style="font-size:1.15rem; margin-bottom:8px;">Data Engineering</h3>
+      <p style="color:var(--muted); font-size:0.88rem;">REST APIs, automated scheduled CRON tasks, and cloud deployment pipelines.</p>
       <div class="skill-tags">
         <span class="tag">FastAPI</span><span class="tag">GitHub Actions</span><span class="tag">Render</span>
       </div>
@@ -591,42 +509,38 @@
   </div>
 </section>
 
-<!-- 4. FEATURED PROJECTS SHOWCASE (Deep Cyan & Rich Wine) -->
-<section class="section-projects" id="projects">
+<!-- 4. PROJECTS SHOWCASE (Deep Petrol & Wine) -->
+<section class="sec-projects" id="projects">
   <div class="section-head">
-    <div class="badge-tag badge-rose"><i class="fas fa-box-open"></i> Portfolio Work</div>
-    <h2>Featured Case Studies</h2>
-    <p>Comprehensive end-to-end applications demonstrating data architecture, modeling, and business intelligence.</p>
+    <div class="badge badge-rose"><i class="fas fa-chart-line"></i> Case Studies</div>
+    <h2>Featured Applications</h2>
+    <p>Real-world datasets translated into actionable business dashboards and production pipelines.</p>
   </div>
 
-  <!-- PROJECT 1: HOSTEL POWER BI SUITE -->
+  <!-- PROJECT 1: HOSTEL POWER BI SUITE (Interactive Image Switcher) -->
   <div class="project-item tilt-card" data-tilt>
     <div class="project-screen">
-      <!-- Dynamic Swapping Frame for Hostel Suite -->
-      <img id="hostelDisplayImg" src="01_Executive_Overview_2.png" alt="Hostel Operations Suite">
+      <img id="hostelDisplayImg" src="01_Executive_Overview.png" alt="Hostel Operations Suite">
     </div>
-    <div class="project-info">
+    <div class="project-body">
       <div class="project-meta">
-        <h3 style="font-size:1.6rem; font-weight:800;">🏨 Hostel Operations & Executive Analytics Suite</h3>
-        <div>
-          <a href="https://github.com/lokeshnidigonda-loki/hostel-operations-PowerBi-dashboard" target="_blank" class="btn btn-primary" style="padding:8px 18px; font-size:0.8rem;"><i class="fab fa-github"></i> Repository</a>
-        </div>
+        <h3 style="font-size:1.55rem; font-weight:800;">🏨 Hostel Operations & Executive Analytics Suite</h3>
+        <a href="https://github.com/lokeshnidigonda-loki/hostel-operations-PowerBi-dashboard" target="_blank" class="btn btn-primary" style="padding:8px 18px; font-size:0.8rem;"><i class="fab fa-github"></i> Repository</a>
       </div>
 
-      <!-- Dashboard Interactive Tab Switcher -->
-      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:10px;">Switch dashboard views:</p>
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:10px;">Select Dashboard Slide to Preview:</p>
       <div class="dash-tabs">
-        <button class="dash-tab-btn active" onclick="switchHostelView('01_Executive_Overview_2.png', this)">1. Executive Overview</button>
-        <button class="dash-tab-btn" onclick="switchHostelView('02_Financial_Operations_2.png', this)">2. Financial Operations</button>
-        <button class="dash-tab-btn" onclick="switchHostelView('03_Room_Capacity_2.png', this)">3. Room Capacity</button>
-        <button class="dash-tab-btn" onclick="switchHostelView('04_Operational_Expenses_2.png', this)">4. Operational Expenses</button>
+        <button class="dash-tab-btn active" onclick="switchHostelView('01_Executive_Overview.png', this)">1. Executive Overview</button>
+        <button class="dash-tab-btn" onclick="switchHostelView('02_Financial_Operations.png', this)">2. Financial Operations</button>
+        <button class="dash-tab-btn" onclick="switchHostelView('03_Room_Capacity.png', this)">3. Room Capacity</button>
+        <button class="dash-tab-btn" onclick="switchHostelView('04_Operational_Expenses.png', this)">4. Operational Expenses</button>
       </div>
 
       <p style="color:#CBD5E1; font-size:0.95rem; margin-bottom:16px;">
-        An executive 4-page Power BI solution built on a relational Star Schema (`Fact_Rent`, `Fact_Expenses`, `Fact_Mess_Attendance`). Solved real business questions by highlighting a 74.8% food expense driver creating a -26.3% operating deficit, while tracking space utilization and 20 active defaulters.
+        An executive 4-page Power BI BI suite built on a relational Star Schema (`Fact_Rent`, `Fact_Expenses`, `Fact_Mess_Attendance`). Solved real business questions by uncovering a ₹1.60M food cost driver (74.8% of spend) causing a -26.3% operating deficit, while monitoring 75.8% bed occupancy and 20 active defaulters.
       </p>
       <div class="skill-tags">
-        <span class="tag">Power BI</span><span class="tag">DAX Engineering</span><span class="tag">Star Schema</span><span class="tag">Financial Analytics</span>
+        <span class="tag">Power BI</span><span class="tag">DAX Engineering</span><span class="tag">Star Schema</span><span class="tag">Cost Optimization</span>
       </div>
     </div>
   </div>
@@ -636,63 +550,88 @@
     <div class="project-screen">
       <img src="AQI-ProjectUI.png" alt="Live AQI Pipeline API">
     </div>
-    <div class="project-info">
+    <div class="project-body">
       <div class="project-meta">
-        <h3 style="font-size:1.6rem; font-weight:800;">🌫️ Live Urban AQI Automated Data Pipeline</h3>
-        <div>
-          <a href="https://github.com/lokeshnidigonda-loki" target="_blank" class="btn btn-ghost" style="padding:8px 18px; font-size:0.8rem;"><i class="fab fa-github"></i> View Architecture</a>
-        </div>
+        <h3 style="font-size:1.55rem; font-weight:800;">🌫️ Live Urban AQI Automated Data Pipeline</h3>
+        <a href="https://github.com/lokeshnidigonda-loki" target="_blank" class="btn btn-ghost" style="padding:8px 18px; font-size:0.8rem;"><i class="fab fa-github"></i> Architecture</a>
       </div>
       <p style="color:#CBD5E1; font-size:0.95rem; margin-bottom:16px;">
-        Automated data pipeline deployed on Render and GitHub Actions. Daily cron jobs extract real-time ambient Air Quality Index records for major Indian metropolitan areas via public environmental APIs, transform records with Pandas, load them into serverless PostgreSQL (Neon DB), and serve endpoints through FastAPI.
+        End-to-end automated data pipeline deployed on Render and GitHub Actions. Daily cron workflows fetch live ambient Air Quality Index records for major Indian cities via public APIs, clean data using Pandas, store them into serverless PostgreSQL (Neon DB), and serve endpoints via a FastAPI REST framework.
       </p>
       <div class="skill-tags">
-        <span class="tag">FastAPI</span><span class="tag">PostgreSQL (Neon)</span><span class="tag">GitHub Actions</span><span class="tag">Pandas</span><span class="tag">Render Cloud</span>
+        <span class="tag">FastAPI</span><span class="tag">PostgreSQL (Neon)</span><span class="tag">GitHub Actions</span><span class="tag">Pandas</span><span class="tag">ETL Pipeline</span>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 3: OLIST E-COMMERCE -->
+  <!-- PROJECT 3: OLIST BRAZILIAN E-COMMERCE -->
   <div class="project-item tilt-card" data-tilt>
     <div class="project-screen">
-      <img src="Olist_UI_Layout.png" alt="Olist E-Commerce Analytics">
+      <img src="OLISTDASH.png" alt="Olist E-Commerce Analytics">
     </div>
-    <div class="project-info">
+    <div class="project-body">
       <div class="project-meta">
-        <h3 style="font-size:1.6rem; font-weight:800;">🛒 Brazilian E-Commerce Analysis (Olist Dataset)</h3>
-        <div>
-          <a href="https://github.com/lokeshnidigonda-loki" target="_blank" class="btn btn-ghost" style="padding:8px 18px; font-size:0.8rem;"><i class="fab fa-github"></i> SQL Queries</a>
-        </div>
+        <h3 style="font-size:1.55rem; font-weight:800;">🛒 Brazilian E-Commerce Analysis (Olist Dataset)</h3>
+        <a href="https://github.com/lokeshnidigonda-loki" target="_blank" class="btn btn-ghost" style="padding:8px 18px; font-size:0.8rem;"><i class="fab fa-github"></i> SQL Scripts</a>
       </div>
       <p style="color:#CBD5E1; font-size:0.95rem; margin-bottom:16px;">
-        Deep dive into 99K+ order records evaluating R$ 13.59M in gross transaction volume. Engineered complex SQL queries for delivery lead time trends (-11.88 avg delay days), customer churn across Brazilian states, and payment category distributions.
+        Analyzed 99K+ customer orders evaluating R$ 13.59M in gross transaction volume. Structured multi-table MySQL joins to compute average shipping delays (-11.88 days), customer retention across Brazilian states, and payment category distributions.
       </p>
       <div class="skill-tags">
-        <span class="tag">MySQL</span><span class="tag">Power BI</span><span class="tag">Cohort Analysis</span><span class="tag">Supply Chain BI</span>
+        <span class="tag">MySQL</span><span class="tag">Power BI</span><span class="tag">Subqueries</span><span class="tag">Supply Chain BI</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO-COLUMN MACHINE LEARNING SHOWCASE (Credit Risk & Startup Predictor) -->
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:24px;">
+    <div class="project-item tilt-card" style="margin-bottom:0;" data-tilt>
+      <div class="project-screen" style="max-height:240px;"><img src="CreditRisk.jpg" alt="Credit Risk Model"></div>
+      <div class="project-body">
+        <h3 style="font-size:1.3rem; font-weight:700; margin-bottom:8px;">💳 Credit Risk Prediction Model</h3>
+        <p style="color:#CBD5E1; font-size:0.88rem; margin-bottom:14px;">
+          Trained a Decision Tree Classifier achieving 85%+ accuracy on financial loan data using robust train-validate-test workflows and feature selection.
+        </p>
+        <div class="skill-tags">
+          <span class="tag">Scikit-learn</span><span class="tag">Decision Trees</span><span class="tag">EDA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-item tilt-card" style="margin-bottom:0;" data-tilt>
+      <div class="project-screen" style="max-height:240px;"><img src="Startup.png" alt="Startup Success Prediction"></div>
+      <div class="project-body">
+        <h3 style="font-size:1.3rem; font-weight:700; margin-bottom:8px;">🚀 Startup Venture Success Predictor</h3>
+        <p style="color:#CBD5E1; font-size:0.88rem; margin-bottom:14px;">
+          Engineered a Random Forest model tuned with GridSearchCV, improving prediction accuracy by 12% over baseline venture capital benchmarks.
+        </p>
+        <div class="skill-tags">
+          <span class="tag">Random Forest</span><span class="tag">GridSearchCV</span><span class="tag">Python</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. CINEMA & REGIONAL FILM REVIEWS (Film Noir & Gold) -->
-<section class="section-cinema" id="cinema">
+<!-- 5. CINEMA & REGIONAL FILM JOURNAL (Film Noir & Gold) -->
+<section class="sec-cinema" id="cinema">
   <div class="section-head">
-    <div class="badge-tag badge-gold"><i class="fas fa-ticket-alt"></i> Automated Feed</div>
+    <div class="badge badge-gold"><i class="fas fa-film"></i> Live Feed</div>
     <h2 class="serif" style="font-size:3.5rem;">Cinema & Regional <i>film reviews.</i></h2>
-    <p>Live Letterboxd RSS pipeline automatically pulling my latest critical film journals.</p>
+    <p>Automated Letterboxd RSS pipeline pulling my latest reviews and ratings.</p>
   </div>
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px;" id="letterboxd-container">
-    <p style="color:var(--muted);">Fetching live reviews from Letterboxd...</p>
+    <p style="color:var(--muted);">Syncing live Letterboxd reviews...</p>
   </div>
 </section>
 
 <!-- 6. GET IN TOUCH (Cyber Carbon & Cyan) -->
-<section class="section-contact" id="contact">
+<section class="sec-contact" id="contact">
   <div class="section-head">
-    <div class="badge-tag badge-cyan"><i class="fas fa-bolt"></i> Direct Reach</div>
-    <h2>Let's Build Impactful Data Systems.</h2>
-    <p>Actively interviewing for Data Analyst, Data Scientist, and Python Software roles.</p>
+    <div class="badge badge-cyan"><i class="fas fa-envelope-open-text"></i> Connect</div>
+    <h2>Let's Discuss Opportunities.</h2>
+    <p>Actively interviewing for Data Analyst, Data Scientist, and Python Developer roles.</p>
   </div>
 
   <div class="contact-cards">
@@ -701,7 +640,7 @@
       <p>lokeshnidigonda@gmail.com</p>
     </a>
     <a href="https://wa.me/916281942161" target="_blank" class="contact-tile">
-      <span>WhatsApp / Phone</span>
+      <span>WhatsApp</span>
       <p>+91 6281942161</p>
     </a>
     <a href="https://www.linkedin.com/in/lokesh-nidigonda-677bb9357/" target="_blank" class="contact-tile">
@@ -717,43 +656,43 @@
       <p>leetcode.com/u/VSz199ebGu</p>
     </a>
     <a href="https://x.com/LokeshCooks" target="_blank" class="contact-tile">
-      <span>X (Twitter)</span>
+      <span>Twitter / X</span>
       <p>@LokeshCooks</p>
     </a>
   </div>
 </section>
 
-<footer style="text-align:center; padding:40px; background:#04060A; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; color:var(--muted);">
-  &copy; 2026 Nidigonda Lokesh. Crafted with responsive 3D CSS & vanilla JavaScript.
+<footer style="text-align:center; padding:40px; background:#020408; border-top:1px solid rgba(255,255,255,0.05); font-size:0.85rem; color:var(--muted);">
+  &copy; 2026 Nidigonda Lokesh. Powered by interactive 3D CSS & vanilla JavaScript.
 </footer>
 
-<!-- INTERACTIVE SCRIPTS -->
+<!-- 3D TILT & LOGIC JAVASCRIPT -->
 <script>
-  // 1. Dashboard Image Tab Switcher
-  function switchHostelView(imgName, btn) {
-    document.getElementById('hostelDisplayImg').src = imgName;
+  // 1. Dashboard View Swapper
+  function switchHostelView(imgSrc, btn) {
+    document.getElementById('hostelDisplayImg').src = imgSrc;
     const buttons = document.querySelectorAll('.dash-tab-btn');
     buttons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
-  // 2. Dynamic 3D Tilt Script (Hardware accelerated)
+  // 2. Interactive 3D Card Tilt Physics
   document.querySelectorAll('.tilt-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      const rotateX = -(y / (rect.height / 2)) * 6;
-      const rotateY = (x / (rect.width / 2)) * 6;
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      const rotateX = -(y / (rect.height / 2)) * 7;
+      const rotateY = (x / (rect.width / 2)) * 7;
+      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px)';
     });
   });
 
-  // 3. Dynamic Letterboxd Feed Fetcher
+  // 3. Dynamic Letterboxd Feed
   async function loadLetterboxdFeed() {
     const user = 'lokeshnidigonda';
     const rss = `https://letterboxd.com/${user}/rss/`;
@@ -775,10 +714,10 @@
           card.className = 'cinema-card';
           card.innerHTML = `
             <div class="cinema-poster"><img src="${poster}" alt="${item.title}"></div>
-            <div class="cinema-details">
+            <div class="cinema-info">
               <h4>${item.title}</h4>
-              <p class="cinema-review">"${cleanDesc.substring(0, 140)}..."</p>
-              <a href="${item.link}" target="_blank" style="color:var(--gold); font-size:0.75rem; font-weight:700; margin-top:8px; display:inline-block;">Full Review on Letterboxd →</a>
+              <p class="cinema-review">"${cleanDesc.substring(0, 130)}..."</p>
+              <a href="${item.link}" target="_blank" style="color:var(--gold); font-size:0.75rem; font-weight:700; margin-top:8px; display:inline-block;">Read Review on Letterboxd →</a>
             </div>
           `;
           container.appendChild(card);
@@ -787,7 +726,7 @@
         container.innerHTML = '<p style="color:var(--muted);">No reviews found currently.</p>';
       }
     } catch (err) {
-      document.getElementById('letterboxd-container').innerHTML = '<p style="color:var(--muted);">Live feed currently syncing.</p>';
+      document.getElementById('letterboxd-container').innerHTML = '<p style="color:var(--muted);">Review feed syncing.</p>';
     }
   }
 
